@@ -1,0 +1,385 @@
+$cl-green: #14FF1F;
+$cl-green-l: #1AE880;
+$cl-gb: #0FFFC9;
+$cl-blue: #00A6DF;
+$cl-blue-l: #1ADCE8;
+$cl-dark: #424242;
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+@mixin display_flex() {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin font-set() {
+	font-family: "Noto Sans HK", sans-serif;
+}
+
+body {
+	@include font-set();
+}
+
+.flex {
+	@include display_flex();
+}
+
+.container {
+	@include display_flex();
+
+	.box-user {
+		width: 20%;
+		height: 90vh;
+	}
+
+	.content-chat {
+		width: 80%;
+	}
+}
+
+.box-user {
+	justify-content: flex-start;
+	flex-direction: column;
+	overflow: scroll;
+
+	.user-info {
+		height: 80px;
+		width: 100%;
+
+		padding: .5em;
+		border-bottom: 1px solid #eee;
+		color: $cl-dark;
+
+		background-color: white;
+	}
+
+	.user-info:hover {
+		background-color: #eee;
+	}
+}
+
+.content-chat {
+
+	height: 90vh;
+
+	.chat-main {
+		height: 90%;
+		background:	linear-gradient(159deg, rgba(26,232,128,1) 0%, rgba(0,166,223,.40) 100%),
+					url('https://img.freepik.com/vector-gratis/patron-costuras_1159-5086.jpg?size=626&ext=jpg');
+		background-size: auto, 90px 90px;
+
+		display: flex;
+		justify-content: flex-start;
+		flex-direction: column;
+		//align-items: center;
+
+		overflow: scroll;
+
+		.content-message {
+			display: flex;
+			align-items: center;
+
+			width: 100%;
+			padding: .5em;
+
+			.me {
+				background-color: white;
+				color: $cl-dark;
+			}
+
+			.you {
+				background-color: $cl-dark;
+				color: white;
+			}
+
+			.box-chat {
+				min-height: 2em;
+				max-width: 80%;
+				padding: .5em;
+
+				border-radius: .5em;
+				box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.3);
+			}
+		}
+
+		.me {
+			justify-content: flex-end;
+		}
+
+		.you {
+		 	justify-content: flex-start;
+		}
+	}
+	.box-messgae {
+		height: 10%;
+		padding: .5em;
+		background-color: $cl-dark;
+
+		@include display_flex();
+
+		input {
+			height: 100%;
+			width: 90%;
+			padding: 1em;
+
+			border-radius: 1.5em;
+			border: 1px solid $cl-green;
+
+			background-color: $cl-dark;
+
+			color: white;
+			@include font-set();
+		}
+
+		button {
+			width: 8%;
+			height: 100%;
+			border-radius: 1.4em;
+			border: none;
+			background-color: $cl-green-l;
+			transition: .5s;
+
+			margin-left: .5em;
+
+			@include font-set();
+			color: $cl-dark;
+
+			i {
+				font-size: 2em;
+			}
+		}
+
+		button:hover {
+			background-color: $cl-green;
+		}
+	}
+}
+
+.head {
+	height: 10vh;
+	padding: .5em;
+	background-color: $cl-dark;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	a {
+		color: white;
+		text-decoration: none;
+	}
+
+	span {
+		color: white;
+		margin-left: 1em;
+	}
+
+	.boton {
+		width: 150px;
+		height: 3em;
+		border-radius: 1.4em;
+		border: none;
+		background-color: $cl-green-l;
+		transition: .5s;
+
+		margin: .5em;
+
+		@include font-set();
+		color: $cl-dark;
+
+		a {
+			color: $cl-dark;
+			text-decoration: none;
+		}
+	}
+
+	.boton:hover {
+		background-color: $cl-green;
+	}
+
+	.boton-user {
+		width: 60px;
+		height: 3em;
+		border-radius: 1.4em;
+		border: none;
+		background-color: $cl-green-l;
+		transition: .5s;
+
+		margin: .5em;
+
+		@include font-set();
+		color: $cl-dark;
+
+		i {
+			font-size: 2em;
+		}
+	}
+
+	.boton-user:hover {
+		background-color: $cl-green;
+	}
+
+	.box-info {
+		transition: .5s;
+		position: fixed;
+		top: 5em;
+		right: 1em;
+
+		display: none;
+		justify-content: space-between;
+		align-items: center;
+		flex-direction: column;
+
+		height: 150px;
+		width: 150px;
+		padding: .5em;
+
+		background-color: white;
+		color: $cl-dark;
+		border-radius: .5em;
+		box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.3);
+
+		.user-boton {
+			height: 2.5em;
+			width: 120px;
+			background-color: white;
+			border-radius: 1.4em;
+			border: 1px solid $cl-dark;
+			transition: 1s;
+
+			@include display_flex();
+
+			a {
+				text-align: center;
+				text-decoration: none;
+				color: $cl-dark;
+			}
+		}
+
+		.user-boton:hover {
+			background-color: $cl-green-l;
+		}
+	}
+}
+
+.content {
+	height: 90vh;
+
+	@include display_flex();
+
+	background: rgb(20,255,31);
+	background: linear-gradient(159deg, rgba(20,255,31,1) 0%, rgba(0,166,223,1) 100%);
+}
+
+.box {
+	background-color: $cl-dark;
+	width: 300px;
+	height: auto;
+
+	padding: .5em;
+	border-radius: 1em;
+
+	text-align: center;
+
+	color: white;
+
+	h1 {
+		margin: .7em 0;
+	}
+	form {
+		@include display_flex();
+		flex-direction: column;
+
+		@mixin size($w, $h, $c) {
+			width: $w;
+			height: $h;
+			margin: .5em;
+			padding: .4em 1em;
+
+			background-color: $cl-dark;
+
+			@include font-set();
+			color: #eee;
+
+			border-radius: 1.4em;
+			border: 2px solid $c;
+		}
+
+		input[type="text"],
+		input[type="password"],
+		input[name="pass-c"] { @include size(90%, 3em, $cl-blue); }
+
+		input[name="pass"] { border: 2px solid $cl-green; }
+
+		input[name="pass-c"] { background-color: $cl-dark; border: 2px solid $cl-blue; }
+
+		input[type="submit"] {
+			width: 60%;
+			height: 3em;
+			border-radius: 1.4em;
+			border: none;
+			background-color: $cl-green-l;
+			transition: .5s;
+
+			margin-top: .5em;
+
+			@include font-set();
+			color: $cl-dark;
+		}
+
+		input[type="submit"]:hover {
+			background-color: $cl-green;
+		}
+	}
+	p {
+		
+		margin-top: .5em;
+		color: #eee;
+
+		a{
+			color: $cl-gb;
+		}
+	}
+}
+
+.message-float {
+
+	display: none;
+
+	position: fixed;
+	top: 50vh;
+	left: 850px;
+
+	background-color: white;
+
+	width: 300px;
+	height: 60px;
+
+	border-radius: .5em;
+	padding: .5em;
+
+	text-align: center;
+
+	box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.3);
+
+	.error {
+		color: red;
+	}
+
+	.else {
+		color: green;
+	}
+
+}
+
+.text-home {
+	color: white;
+	font-size: 4em;
+}

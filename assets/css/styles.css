@@ -1,0 +1,306 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans HK", sans-serif;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .box-user {
+  width: 20%;
+  height: 90vh;
+}
+.container .content-chat {
+  width: 80%;
+}
+
+.box-user {
+  justify-content: flex-start;
+  flex-direction: column;
+  overflow: scroll;
+}
+.box-user .user-info {
+  height: 80px;
+  width: 100%;
+  padding: 0.5em;
+  border-bottom: 1px solid #eee;
+  color: #424242;
+  background-color: white;
+}
+.box-user .user-info:hover {
+  background-color: #eee;
+}
+
+.content-chat {
+  height: 90vh;
+}
+.content-chat .chat-main {
+  height: 90%;
+  background: linear-gradient(159deg, #1ae880 0%, rgba(0, 166, 223, 0.4) 100%), url("https://img.freepik.com/vector-gratis/patron-costuras_1159-5086.jpg?size=626&ext=jpg");
+  background-size: auto, 90px 90px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  overflow: scroll;
+}
+.content-chat .chat-main .content-message {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.5em;
+}
+.content-chat .chat-main .content-message .me {
+  background-color: white;
+  color: #424242;
+}
+.content-chat .chat-main .content-message .you {
+  background-color: #424242;
+  color: white;
+}
+.content-chat .chat-main .content-message .box-chat {
+  min-height: 2em;
+  max-width: 80%;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  box-shadow: 10px 10px 5px -9px rgba(0, 0, 0, 0.3);
+}
+.content-chat .chat-main .me {
+  justify-content: flex-end;
+}
+.content-chat .chat-main .you {
+  justify-content: flex-start;
+}
+.content-chat .box-messgae {
+  height: 10%;
+  padding: 0.5em;
+  background-color: #424242;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content-chat .box-messgae input {
+  height: 100%;
+  width: 90%;
+  padding: 1em;
+  border-radius: 1.5em;
+  border: 1px solid #14FF1F;
+  background-color: #424242;
+  color: white;
+  font-family: "Noto Sans HK", sans-serif;
+}
+.content-chat .box-messgae button {
+  width: 8%;
+  height: 100%;
+  border-radius: 1.4em;
+  border: none;
+  background-color: #1AE880;
+  transition: 0.5s;
+  margin-left: 0.5em;
+  font-family: "Noto Sans HK", sans-serif;
+  color: #424242;
+}
+.content-chat .box-messgae button i {
+  font-size: 2em;
+}
+.content-chat .box-messgae button:hover {
+  background-color: #14FF1F;
+}
+
+.head {
+  height: 10vh;
+  padding: 0.5em;
+  background-color: #424242;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.head a {
+  color: white;
+  text-decoration: none;
+}
+.head span {
+  color: white;
+  margin-left: 1em;
+}
+.head .boton {
+  width: 150px;
+  height: 3em;
+  border-radius: 1.4em;
+  border: none;
+  background-color: #1AE880;
+  transition: 0.5s;
+  margin: 0.5em;
+  font-family: "Noto Sans HK", sans-serif;
+  color: #424242;
+}
+.head .boton a {
+  color: #424242;
+  text-decoration: none;
+}
+.head .boton:hover {
+  background-color: #14FF1F;
+}
+.head .boton-user {
+  width: 60px;
+  height: 3em;
+  border-radius: 1.4em;
+  border: none;
+  background-color: #1AE880;
+  transition: 0.5s;
+  margin: 0.5em;
+  font-family: "Noto Sans HK", sans-serif;
+  color: #424242;
+}
+.head .boton-user i {
+  font-size: 2em;
+}
+.head .boton-user:hover {
+  background-color: #14FF1F;
+}
+.head .box-info {
+  transition: 0.5s;
+  position: fixed;
+  top: 5em;
+  right: 1em;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 150px;
+  width: 150px;
+  padding: 0.5em;
+  background-color: white;
+  color: #424242;
+  border-radius: 0.5em;
+  box-shadow: 10px 10px 5px -9px rgba(0, 0, 0, 0.3);
+}
+.head .box-info .user-boton {
+  height: 2.5em;
+  width: 120px;
+  background-color: white;
+  border-radius: 1.4em;
+  border: 1px solid #424242;
+  transition: 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.head .box-info .user-boton a {
+  text-align: center;
+  text-decoration: none;
+  color: #424242;
+}
+.head .box-info .user-boton:hover {
+  background-color: #1AE880;
+}
+
+.content {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #14ff1f;
+  background: linear-gradient(159deg, #14ff1f 0%, #00a6df 100%);
+}
+
+.box {
+  background-color: #424242;
+  width: 300px;
+  height: auto;
+  padding: 0.5em;
+  border-radius: 1em;
+  text-align: center;
+  color: white;
+}
+.box h1 {
+  margin: 0.7em 0;
+}
+.box form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.box form input[type=text],
+.box form input[type=password],
+.box form input[name=pass-c] {
+  width: 90%;
+  height: 3em;
+  margin: 0.5em;
+  padding: 0.4em 1em;
+  background-color: #424242;
+  font-family: "Noto Sans HK", sans-serif;
+  color: #eee;
+  border-radius: 1.4em;
+  border: 2px solid #00A6DF;
+}
+.box form input[name=pass] {
+  border: 2px solid #14FF1F;
+}
+.box form input[name=pass-c] {
+  background-color: #424242;
+  border: 2px solid #00A6DF;
+}
+.box form input[type=submit] {
+  width: 60%;
+  height: 3em;
+  border-radius: 1.4em;
+  border: none;
+  background-color: #1AE880;
+  transition: 0.5s;
+  margin-top: 0.5em;
+  font-family: "Noto Sans HK", sans-serif;
+  color: #424242;
+}
+.box form input[type=submit]:hover {
+  background-color: #14FF1F;
+}
+.box p {
+  margin-top: 0.5em;
+  color: #eee;
+}
+.box p a {
+  color: #0FFFC9;
+}
+
+.message-float {
+  display: none;
+  position: fixed;
+  top: 50vh;
+  left: 850px;
+  background-color: white;
+  width: 300px;
+  height: 60px;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  text-align: center;
+  box-shadow: 10px 10px 5px -9px rgba(0, 0, 0, 0.3);
+}
+.message-float .error {
+  color: red;
+}
+.message-float .else {
+  color: green;
+}
+
+.text-home {
+  color: white;
+  font-size: 4em;
+}
+
+/*# sourceMappingURL=styles.css.map */
