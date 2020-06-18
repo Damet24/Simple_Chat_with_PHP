@@ -80,7 +80,22 @@ body {
 		flex-direction: column;
 		//align-items: center;
 
+		padding-top: 2em;
+
 		overflow: scroll;
+
+		.name-chat {
+			position: fixed;
+			top: 10vh;
+
+			background-color: rgba(66, 66, 66, .5);
+			color: white;
+
+			height: 2em;
+			width: 100%;
+			padding: .4em;
+			line-height: 100%;
+		}
 
 		.content-message {
 			display: flex;

@@ -3,6 +3,8 @@ session_start();
 
 require 'conection.php';
 
+$user = null;
+
 if (isset($_SESSION['user_id'])) {
 	$records = $conn->prepare('SELECT id, user, pass FROM users WHERE id=:id');
 	$records->bindParam(':id', $_SESSION['user_id']);
@@ -10,7 +12,9 @@ if (isset($_SESSION['user_id'])) {
 
 	$results = $records->fetch(PDO::FETCH_ASSOC);
 	
-	$user = null;
+	$active = $conn->prepare('UPDATE `users` SET `active` = 1 WHERE `users`.`id` = :id');
+	$active->bindParam(':id', $_SESSION['user_id']);
+	$active->execute();
 
 	if(count($results) > 0) {
 		$user = $results;
@@ -51,88 +55,43 @@ if (isset($_SESSION['user_id'])) {
 		<aside class="box-user flex">
 
 			<?php foreach ($user_list as $value): ?>
-				<div class="user-info">
+
+				<?php if($value['user'] != $user['user']): ?>
+
+				<div class="user-info boton-u" onclick="searchCat(<?= $value['id'] ?>)" id="<?= $value['id'] ?>">
 
 					<h2><?php echo $value['user'] ?></h2>
 
 					<p>
 						<?php if($value['active']) {
-									echo "Activo";
+									echo "Conectado";
 								}
 								else {
-									echo "Ausente";
-								} 
+									echo "Desconectado";
+								}
 						?>
 					</p>
 				</div>
-			<?php endforeach ?>
+			<?php endif; endforeach ?>
 
 		</aside>
 
 		<div class="content-chat">
 
 			<div class="chat-main">
+				<div class="name-chat" id="name-chat"><span>Nombre</span></div>
 
 				<div class="content-message me">
 					<div class="box-chat me">
-						<span>Este es el mensaje que quiero mostrar.</span>
+						<span>Mensaje 1</span>
 					</div>
 				</div>
 
 				<div class="content-message you">
 					<div class="box-chat you">
-						<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus culpa atque molestias, quia non. Id facilis animi adipisci sequi impedit, unde tempore laboriosam maiores odio ratione aspernatur quidem cumque harum.</span>
+						<span>Mensaje 2</span>
 					</div>
 				</div>
-
-				<div class="content-message me">
-					<div class="box-chat me">
-						<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati numquam deleniti neque. Impedit ullam, perspiciatis, harum officiis eius dolorem hic, nihil inventore culpa, commodi deleniti ipsam sit sed iusto earum!</span>
-					</div>
-				</div>
-
-				<div class="content-message you">
-					<div class="box-chat you">
-						<span>Este es el mensaje que quiero mostrar.</span>
-					</div>
-				</div>
-
-				<div class="content-message me">
-					<div class="box-chat me">
-						<span>Hola, como estas?</span>
-					</div>
-				</div>
-
-				<div class="content-message me">
-					<div class="box-chat me">
-						<span>Este es el mensaje que quiero mostrar.</span>
-					</div>
-				</div>
-
-				<div class="content-message you">
-					<div class="box-chat you">
-						<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus culpa atque molestias, quia non. Id facilis animi adipisci sequi impedit, unde tempore laboriosam maiores odio ratione aspernatur quidem cumque harum.</span>
-					</div>
-				</div>
-
-				<div class="content-message me">
-					<div class="box-chat me">
-						<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati numquam deleniti neque. Impedit ullam, perspiciatis, harum officiis eius dolorem hic, nihil inventore culpa, commodi deleniti ipsam sit sed iusto earum!</span>
-					</div>
-				</div>
-
-				<div class="content-message you">
-					<div class="box-chat you">
-						<span>Este es el mensaje que quiero mostrar.</span>
-					</div>
-				</div>
-
-				<div class="content-message me">
-					<div class="box-chat me">
-						<span>Hola, como estas?</span>
-					</div>
-				</div>
-
 			</div>
 
 			<div class="box-messgae">
@@ -141,5 +100,8 @@ if (isset($_SESSION['user_id'])) {
 			</div>	
 		</div>
 	</div>
+
+	<script src="assets/js/chat.js"></script>
+
 </body>
 </html>

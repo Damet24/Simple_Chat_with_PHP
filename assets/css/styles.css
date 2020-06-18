@@ -56,7 +56,18 @@ body {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
+  padding-top: 2em;
   overflow: scroll;
+}
+.content-chat .chat-main .name-chat {
+  position: fixed;
+  top: 10vh;
+  background-color: rgba(66, 66, 66, 0.5);
+  color: white;
+  height: 2em;
+  width: 100%;
+  padding: 0.4em;
+  line-height: 100%;
 }
 .content-chat .chat-main .content-message {
   display: flex;
